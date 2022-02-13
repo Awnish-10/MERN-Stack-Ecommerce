@@ -41,7 +41,6 @@ exports.getAdminProducts = catchAsyncError(async (req, res, next) => {
     });
 });
 exports.createProduct = catchAsyncError(async (req, res) => {
-    console.log("in");
     req.body.user = req.user.id;
     let images = [];
 
@@ -50,7 +49,7 @@ exports.createProduct = catchAsyncError(async (req, res) => {
     } else {
         images = req.body.images;
     }
-
+    console.log("in");
     const imagesLinks = [];
 
     for (let i = 0; i < images.length; i++) {
