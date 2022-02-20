@@ -32,6 +32,7 @@ const ProductDetails = () => {
     const { success, error: reviewError } = useSelector(
         (state) => state.newReview
     );
+    const { isAuthenticated } = useSelector((state) => state.user);
     const params = useParams();
     const [quantity, setQuantity] = useState(1);
     const [open, setOpen] = useState(false);
@@ -89,6 +90,11 @@ const ProductDetails = () => {
         });
     };
     const reviewSubmitHandler = () => {
+        if (!isAuthenticated) {
+            alert.error("Login to add Review");
+            setOpen(false);
+            return;
+        }
         const myForm = new FormData();
 
         myForm.set("rating", rating);
