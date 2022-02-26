@@ -142,28 +142,18 @@ exports.updateProfile = catchAsyncError(async (req, res, next) => {
         const user = await userDB.findById(req.user.id);
 
         const imageId = user.avatar.public_id;
-        try {
-            await cloudinary.v2.uploader.destroy(imageId);
-        } catch (err) {
-            console.log("destroy image", err);
-        }
-        try {
-            const myCloud = await cloudinary.v2.uploader.upload(
-                req.body.avatar,
-                {
-                    folder: "avatars",
-                    width: 150,
-                    crop: "scale",
-                }
-            );
 
-            userData.avatar = {
-                public_id: myCloud.public_id,
-                url: myCloud.secure_url,
-            };
-        } catch (err) {
-            console.log("create error", err);
-        }
+        await cloudinary.v2.uploader.destroy(imageId);
+        const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+            folder: "avatars",
+            width: 150,
+            crop: "scale",
+        });
+
+        userData.avatar = {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+        };
     }
     await userDB.findByIdAndUpdate(req.user.id, userData, {
         new: true,
