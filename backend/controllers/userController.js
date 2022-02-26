@@ -82,7 +82,7 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
         (user.resetPassswordToken = undefined),
             (user.resetPasswordDate = undefined);
         await user.save({ validateBeforeSave: false });
-        return next(new ErrorHandler(err.message, 500));
+        return next(new ErrorHandler(err, 500));
     }
     console.log("out of try catch");
 });
