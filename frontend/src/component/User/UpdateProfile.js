@@ -22,6 +22,7 @@ const UpdateProfile = () => {
     const [email, setEmail] = useState("");
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState();
+    // const [images, setFile] = useState("");
 
     const updateProfileSubmit = (e) => {
         e.preventDefault();
@@ -35,6 +36,12 @@ const UpdateProfile = () => {
     };
 
     const updateProfileDataChange = (e) => {
+        // console.log("size", e.target.files[0].size / 1024);
+        const size = e.target.files[0].size / 1024;
+        if (size > 700) {
+            alert.error("only file size less than 700 kb accepted");
+            return;
+        }
         const reader = new FileReader();
 
         reader.onload = () => {
@@ -45,6 +52,10 @@ const UpdateProfile = () => {
         };
 
         reader.readAsDataURL(e.target.files[0]);
+        // console.log("image", e.target.files[0]);
+        // setAvatarPreview(e.target.files[0]);
+        // setAvatar(e.target.files[0]);
+        // setFile(e.target.value);
     };
 
     useEffect(() => {

@@ -139,7 +139,11 @@ const ProductDetails = () => {
                                 <Rating {...options} />
                                 <span className="detailsBlock-2-span">
                                     {" "}
-                                    ({product.numberOfReviews} Reviews)
+                                    (
+                                    {product.numberOfReviews
+                                        ? product.numberOfReviews
+                                        : "0"}{" "}
+                                    Reviews)
                                 </span>
                             </div>
                             <div className="detailsBlock-3">

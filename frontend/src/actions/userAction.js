@@ -103,7 +103,7 @@ export const logout = () => async (dispatch) => {
 
 // Update Profile
 export const updateProfile = (userData) => async (dispatch) => {
-    console.log("form data", userData);
+    // console.log("form data", userData);
     try {
         dispatch({ type: UPDATE_PROFILE_REQUEST });
 

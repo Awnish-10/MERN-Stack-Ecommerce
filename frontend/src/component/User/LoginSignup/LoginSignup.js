@@ -51,6 +51,11 @@ const LoginSignup = () => {
 
     const registerDataChange = (e) => {
         if (e.target.name === "avatar") {
+            const size = e.target.files[0].size / 1024;
+            if (size > 700) {
+                alert.error("only file size less than 700 kb accepted");
+                return;
+            }
             const reader = new FileReader();
             // read file
 
@@ -199,6 +204,7 @@ const LoginSignup = () => {
                                     type="file"
                                     name="avatar"
                                     accept="image/*" //accept image od all type
+                                    required
                                     onChange={registerDataChange}
                                 />
                             </div>

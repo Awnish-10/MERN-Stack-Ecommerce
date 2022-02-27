@@ -17,7 +17,9 @@ const ProductCard = ({ product }) => {
             <div>
                 <Rating {...options} />
                 <span className="productCardSpan">
-                    {`${product.numberOfReviews}Reviews`}
+                    {`${
+                        product.numberOfReviews ? product.numberOfReviews : "0"
+                    }Reviews`}
                 </span>
             </div>
             <span>{`₹${product.price}`}</span>
