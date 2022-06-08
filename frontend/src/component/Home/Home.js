@@ -8,16 +8,6 @@ import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import { useAlert } from "react-alert";
 
-// const product22 = {
-//     name: "T-Shirt",
-//     price: "Rs. 399",
-//     images: [
-//         {
-//             url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dCUyMHNoaXJ0fGVufDB8fDB8fA%3D%3D&w=300&q=80",
-//         },
-//     ],
-//     id: "awnish",
-// };
 
 const Home = () => {
     const alert = useAlert();

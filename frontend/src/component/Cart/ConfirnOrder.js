@@ -106,7 +106,7 @@ const ConfirnOrder = () => {
                         </div>
 
                         <button onClick={proceedToPayment}>
-                            Proceed To Payment
+                            Proceed To Checkout
                         </button>
                     </div>
                 </div>
